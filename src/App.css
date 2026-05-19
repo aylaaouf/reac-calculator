@@ -1,0 +1,154 @@
+.calculator-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 32px 20px;
+}
+
+.calculator {
+  background: var(--panel);
+  border-radius: 28px;
+  box-shadow: var(--shadow-xl);
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--panel-border);
+  animation: liftIn 0.6s ease;
+}
+
+.display-panel {
+  background: var(--display-panel);
+  border-radius: 18px;
+  padding: 18px 18px 12px;
+  margin-bottom: 18px;
+  border: 1px solid var(--panel-border);
+}
+
+.display-history {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-text);
+  margin-bottom: 8px;
+}
+
+.display {
+  width: 100%;
+  padding: 4px 0 12px;
+  font-size: 2.6rem;
+  font-weight: 500;
+  text-align: right;
+  background: transparent;
+  border: none;
+  color: var(--text-strong);
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.display:focus {
+  outline: none;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  padding: 18px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 14px;
+  background: var(--button);
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  font-family: 'Space Grotesk', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  background: var(--button-active);
+}
+
+.btn-function {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+
+.btn-function:hover {
+  background: var(--accent-hover);
+}
+
+.btn-function:active {
+  background: var(--accent-strong);
+}
+
+.btn-function.is-active {
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.35);
+  background: var(--accent-strong);
+  color: #041017;
+}
+
+.btn-equals {
+  background: var(--cta);
+  color: #0b1116;
+  grid-column: span 4;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.btn-equals:hover {
+  background: var(--cta-hover);
+}
+
+.btn-equals:active {
+  background: var(--cta-active);
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+@keyframes liftIn {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 520px) {
+  .calculator {
+    padding: 18px;
+  }
+
+  .display {
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    padding: 15px;
+    font-size: 1.1rem;
+  }
+
+  .btn-equals {
+    font-size: 1.2rem;
+  }
+}
